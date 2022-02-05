@@ -49,6 +49,12 @@
     "> 1%",
     "IE 10"
   ],
+  "lint-staged": {
+    "*.js": [
+    ],
+    "*.json": [
+    ]
+  },
   "pre-commit": "lint:staged",
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"
