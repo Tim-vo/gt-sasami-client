@@ -14,15 +14,24 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 
 import GlobalStyle from '../../global-styles';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+  display: flex;
+  flex-direction: row;
+  background-color: #262B49;
+  margin: 0;
+  padding: 0;
+`;
 
 export default function App() {
   return (
-    <div>
+    <Wrapper>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </div>
+    </Wrapper>
   );
 }
