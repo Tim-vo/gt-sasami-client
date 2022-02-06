@@ -16,14 +16,23 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #app {
-    background-color: #262B49;
+    background-color: #F2F0EB;
     min-height: 100%;
     min-width: 100%;
+    @media (max-width: 768px) {
+      -ms-overflow-style: none; /* for Internet Explorer, Edge */
+      scrollbar-width: none; /* for Firefox */
+      overflow-y: scroll; 
+    }
+  }
+
+  #app::-webkit-scrollbar {
+    display: none;
   }
 
   p,
   label {
-    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.5em;
   }
 `;
