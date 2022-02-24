@@ -12,6 +12,7 @@ import messages from './messages';
 import GuidesBooks from '../../images/guides_books.svg';
 import Raids from '../../images/raids.svg';
 import Guilds from '../../images/guild.svg';
+import { Link } from 'react-router-dom';
 
 const Page = styled.div`
   display: flex;
@@ -31,37 +32,8 @@ const Page = styled.div`
   }
 `;
 
-const Section = styled.section`
-  display: flex;
-  flex-direction: column;
-  width: 28vw;
-  height: 40vh;
-  background: #fff;
-  margin: 0 2.5% 2.5% 2.5%;
-  box-shadow: 0 0 0.5px 0 rgb(0 0 0 / 14%), 0 1px 1px 0 rgb(0 0 0 / 24%);
-  border-radius: 12px;
-  overflow: hidden;
-  @media (max-width: 768px) {
-    flex-direction: column;
-    margin: 2.5% 0 2.5% 0;
-    width: 85vw;
-  }
-`;
-
-const SectionHeader = styled.div`
-  min-width: 100%;
-  text-align: center;
-  min-height: 20%;
-  color: #F2F0EB;
-  background-color: #016241;
-`;
-
-const SectionContent = styled.div`
-  min-width: 100%;
-  min-height: 87.5%;
-`;
-
-const AltSection = styled.div`
+const Section = styled(Link)`
+  text-decoration: none;
   background: rgb(224,248,233);
   background: linear-gradient(180deg, rgba(224,248,233,1) 0%, rgba(243,236,208,1) 50%, rgba(255,193,146,1) 100%);
   display: flex;
@@ -81,7 +53,7 @@ const AltSection = styled.div`
   }
 `;
 
-const AltSectionHeader = styled.div`
+const SectionHeader = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,7 +66,7 @@ const AltSectionHeader = styled.div`
   font-weight: 600;
 `;
 
-const AltSectionContent = styled.div`
+const SectionContent = styled.div`
   display: flex;
   flex-direction: column-reverse;
   justify-content: safe center;
@@ -115,36 +87,36 @@ const GuildContent = styled.div`
 export default function HomePage() {
   return (
     <Page>
-      <AltSection>
-        <AltSectionHeader>
+      <Section id="RaidsPage" to="/raids">
+        <SectionHeader>
           <p>
             <FormattedMessage {...messages.raids} />
           </p>
-        </AltSectionHeader>
-        <AltSectionContent>
+        </SectionHeader>
+        <SectionContent>
           <img style={{ width: '60%', height: '60%' }} src={Raids} alt="Guides" />
-        </AltSectionContent>
-      </AltSection>
-      <AltSection>
-        <AltSectionHeader>
+        </SectionContent>
+      </Section>
+      <Section id="RaidsPage" to="/raids">
+        <SectionHeader>
           <p>
             <FormattedMessage {...messages.guides} />
           </p>
-        </AltSectionHeader>
-        <AltSectionContent>
+        </SectionHeader>
+        <SectionContent>
           <img style={{ width: '60%', height: '60%' }} src={GuidesBooks} alt="Guides" />
-        </AltSectionContent>
-      </AltSection>
-      <AltSection>
-        <AltSectionHeader>
+        </SectionContent>
+      </Section>
+      <Section id="RaidsPage" to="/raids">
+        <SectionHeader>
           <p>
             <FormattedMessage {...messages.guilds} />
           </p>
-        </AltSectionHeader>
+        </SectionHeader>
         <GuildContent>
           <img style={{ width: '80%', height: '80%'}} src={Guilds} alt="Guides" />
         </GuildContent>
-      </AltSection>
+      </Section>
     </Page>
   );
 }

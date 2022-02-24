@@ -16,6 +16,7 @@ import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles';
 import styled from 'styled-components';
+import RaidsPage from '../RaidsPage';
 
 const Wrapper = styled.section`
   display: flex;
@@ -23,7 +24,7 @@ const Wrapper = styled.section`
   background: #F2F0EB;
   margin: 0;
   padding: 0;
-  height: calc(90%);
+  height: calc(92.5%);
   overflow-x: hidden;
 `;
 
@@ -47,6 +48,7 @@ export default function App() {
           <Wrapper id="page-wrap">
             <Switch>
               <Route exact path="/" component={HomePage} />
+              <Route exact path="/raids" component={RaidsPage}/>
               <Route component={NotFoundPage} />
             </Switch>
           </Wrapper>

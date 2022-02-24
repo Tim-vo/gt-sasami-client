@@ -4,6 +4,7 @@ import {push as BurgerMenu} from 'react-burger-menu';
 import { Link } from 'react-router-dom';
 const reduxBurgerMenu = require('redux-burger-menu');
 const { decorator } = reduxBurgerMenu;
+import styled from 'styled-components';
 
 var styles = {
   bmBurgerButton: {
@@ -43,23 +44,57 @@ var styles = {
     padding: '0.8em'
   },
   bmItem: {
-    display: 'inline-block'
+    color: '#FAFAFA',
+    display: 'inline-block',
   },
   bmOverlay: {
     background: 'rgba(0, 0, 0, 0.3)'
   }
 }
 
+const Item = styled.div`
+  color: '#FAFAFA',
+  display: 'inline-block',
+`;
+
+const ItemList = styled.div`
+  color: '#b8b7ad',
+  padding: '0.8em'
+`;
+
+const StyledLink = styled(Link)`
+  display: block;
+  padding: 0.8em;
+  text-decoration: none;
+  font-size: 1.15em;
+  font-family: 'Raleway', Arial, sans-serif;
+  -webkit-text-size-adjust: 100%;
+  box-sizing: border-box;
+  color: #fffce1;
+  &:hover {
+    color: #c94e50
+  }
+`;
+
 const Menu = ({
   outerContainerId,
   pageWrapId,
 }) => {
   return (
-      <BurgerMenu styles={ styles } pageWrapId={pageWrapId} outerContainerId={outerContainerId}>
-        <Link id="HomePage" className={styles.bmItem} to="/">
+    <BurgerMenu styles={styles} pageWrapId={pageWrapId} outerContainerId={outerContainerId}>
+      <ItemList>
+      <Item>
+        <StyledLink id="HomePage" to="/">
           Home
-        </Link>
-      </BurgerMenu>
+        </StyledLink>
+      </Item>
+      <Item>
+        <StyledLink id="RaidsPage" to="/raids">
+          Raids
+        </StyledLink>
+      </Item>
+      </ItemList>
+    </BurgerMenu>
     );
 }
 export default decorator(Menu);
