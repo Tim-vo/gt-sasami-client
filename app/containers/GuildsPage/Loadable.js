@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for RaidsPage
+ * Asynchronously loads the component for GuildsPage
  *
  */
 

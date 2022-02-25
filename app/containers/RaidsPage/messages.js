@@ -1,22 +1,16 @@
+/*
+ * RaidsPage Messages
+ *
+ * This contains all the text for the RaidsPage container.
+ */
+
 import { defineMessages } from 'react-intl';
 
-export const scope = 'app.containers.HomePage';
+export const scope = 'app.containers.RaidsPage';
 
 export default defineMessages({
-  guides: {
-    id: `${scope}.guides`,
-    defaultMessage: `Guides`,
-  },
-  raids: {
-    id: `${scope}.raids`,
-    defaultMessage: `Raids`,
-  },
-  guilds: {
-    id: `${scope}.guilds`,
-    defaultMessage: `Guild`,
-  },
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the HomePage container!',
+    defaultMessage: 'This is the RaidsPage container!',
   },
 });
