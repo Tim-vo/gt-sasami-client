@@ -12,6 +12,7 @@ import {
 
 export const initialState = {
   playerStats: {
+    dailyStats: [],
     raidHistory: [],
   },
   loading: false,

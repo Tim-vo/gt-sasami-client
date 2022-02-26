@@ -23,8 +23,10 @@ import saga from './saga';
 import messages from './messages';
 import styled from 'styled-components';
 import raids_background from '../../images/raids_background.svg';
+import knight from '../../images/guardians/knight.png';
 import SearchForm from '../../components/SearchForm';
 import LineChart from '../../components/LineChart';
+import StackedBarChart from '../../components/StackedBarChart';
 import {
   loadPlayerStats,
   loadPlayerStatsSuccess,
@@ -72,19 +74,51 @@ const Component = styled.div`
   display: flex;
   flex-direction: row;
   border: 6px solid #4F2820;
-  background-color: #FAFAFA;
+  background-color: #EFE0BB;
 `;
 
-const PlayersMenu = styled.div`
+const PlayerMenu = styled.div`
   width: 25%;
   min-height: 1.5rem;
   display: flex;
   flex-direction: column;
-  background-color: #300C00;
-  border: 3px solid #EFE0BB;
+  background-color: #4F2820;
+  margin: 5px;
+  border: 6px solid #C9814D;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47); 
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47);
 `;
 
-const PlayersOverview = styled.div`
+const PlayerInfo = styled.div`
+  width: 100%;
+  height: = 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: safe center;
+  color: #FAFAFA
+`;
+
+const PlayerIcon = styled.div`
+  margin: 10% 0 0 0;
+  width: 9rem;
+  height: 9rem;
+  background-color: #FAFAFA;
+  border: 6px solid #C9814D;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47); 
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47);
+  background-image: url(${knight});
+  background-size: contain;
+`;
+
+const PlayerDetails = styled.div`
+  margin: 5% 0 5% 30%;
+  width: 20rem;
+  height: 3rem;
+  text-align: left;
+`;
+
+const PlayerOverview = styled.div`
   width: 75%;
   min-height: 1.5rem;
   display: flex;
@@ -93,7 +127,7 @@ const PlayersOverview = styled.div`
   border: 3px solid #EFE0BB;
 `;
 
-const PlayersAttendance = styled.div`
+const PlayerPerformance = styled.div`
   width: 67%;
   margin: 0 1% 0 1%;
   min-height: 1.5rem;
@@ -102,18 +136,28 @@ const PlayersAttendance = styled.div`
 `;
 
 const ChartContainer = styled.div`
-  margin: 2px 0 0 0;
+  margin: 3px 0 0 0;
   width: 100%;
   height: 50%;
   display: flex;
-  border: 5px solid #300C00;
-  border-radius: 15px;
+  border: 6px solid #C9814D;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47); 
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47);
+`;
+
+const ChartShell = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border: 5px solid #4F2820;
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.47); 
   box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.47);
 `;
 
-const PlayersDailyStats = styled.div`
+const PlayerDailyStats = styled.div`
+  margin: 2px 0 0 0;
   overflow-y: auto;
   width: 32%;
   min-height: 1.5rem;
@@ -125,20 +169,21 @@ const PlayersDailyStats = styled.div`
     background-color: #EFE0BB;
   }
   &::-webkit-scrollbar-thumb {
-    background: #300C00;
+    background: #4F2820;
     border-radius: 20px;
   }
 `;
 
 const Item = styled.div`
   width: 98%;
-  margin: 0 0 5px 0;
+  margin: 0 0 6px 0;
   height: 10%;
   display: flex;
   flex-direction: row;
-  background-color: #300C00;
-  -webkit-box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.47); 
-  box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.47);
+  background-color: #4F2820;
+  border: 2px solid #C9814D;
+  -webkit-box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47); 
+  box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.47);
 `;
 
 const ItemDate = styled.div`
@@ -149,7 +194,7 @@ const ItemDate = styled.div`
   flex-direction: column;
   margin: 5px;
   background-color: #FAFAFA;
-  justify-content: center;
+  justify-content: safe center;
   align-items: center;
 `;
 
@@ -193,30 +238,43 @@ export function RaidsPage({loadPlayerStats, playerStats}) {
 
   }, []);
 
-  const playerItems = playerStats.raidHistory;
+  const { dailyStats, raidHistory, name, discord } = playerStats;
 
   return (
     <div>
       <Page>
         <Container>
           <Component>
-            <PlayersMenu>
+            <PlayerMenu>
               <SearchForm loadPlayerStats={loadPlayerStats} />
-            </PlayersMenu>
-            <PlayersOverview>
-              <PlayersAttendance>
-                {playerItems && playerItems.length ?
-                <ChartContainer>
-                  <LineChart
-                    data={playerItems}
-                  /> 
-                </ChartContainer>
-                : 
+              {name ?
+                <PlayerInfo>
+                  <PlayerIcon/>
+                  <PlayerDetails>
+                    <H3>Name: {name}</H3>
+                    <H3>Discord: {discord}</H3>
+                  </PlayerDetails>
+                </PlayerInfo>
+              :
                 <div/>
+              }
+            </PlayerMenu>
+            <PlayerOverview>
+              <PlayerPerformance>
+                {dailyStats && dailyStats.length ?
+                  <ChartContainer>
+                    <ChartShell>
+                      <StackedBarChart
+                        data={dailyStats}
+                      /> 
+                    </ChartShell>
+                  </ChartContainer>
+                : 
+                  <div/>
                 }
-              </PlayersAttendance>
-              <PlayersDailyStats>
-                {playerItems.map((item) => {
+              </PlayerPerformance>
+              <PlayerDailyStats>
+                {raidHistory.map((item) => {
                   return (
                     <Item key={uuidv4()}>
                       <ItemDate>
@@ -238,8 +296,8 @@ export function RaidsPage({loadPlayerStats, playerStats}) {
                     </Item>
                   );
                 })}
-              </PlayersDailyStats>
-            </PlayersOverview>
+              </PlayerDailyStats>
+            </PlayerOverview>
           </Component>
         </Container>
       </Page>
