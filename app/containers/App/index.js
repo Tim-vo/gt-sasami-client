@@ -17,6 +17,8 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles';
 import styled from 'styled-components';
 import RaidsPage from '../RaidsPage';
+import { GuildsPage } from '../GuildsPage';
+import { GuidesPage } from '../GuidesPage';
 
 const Wrapper = styled.section`
   display: flex;
@@ -49,6 +51,8 @@ export default function App() {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route exact path="/raids" component={RaidsPage}/>
+              <Route exact path="/guides" component={GuidesPage}/>
+              <Route exact path="/guilds" component={GuildsPage}/>
               <Route component={NotFoundPage} />
             </Switch>
           </Wrapper>

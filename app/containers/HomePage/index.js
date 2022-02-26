@@ -87,17 +87,7 @@ const GuildContent = styled.div`
 export default function HomePage() {
   return (
     <Page>
-      <Section id="RaidsPage" to="/raids">
-        <SectionHeader>
-          <p>
-            <FormattedMessage {...messages.raids} />
-          </p>
-        </SectionHeader>
-        <SectionContent>
-          <img style={{ width: '60%', height: '60%' }} src={Raids} alt="Guides" />
-        </SectionContent>
-      </Section>
-      <Section id="RaidsPage" to="/raids">
+      <Section id="GuidesPage" to="/guides">
         <SectionHeader>
           <p>
             <FormattedMessage {...messages.guides} />
@@ -107,7 +97,7 @@ export default function HomePage() {
           <img style={{ width: '60%', height: '60%' }} src={GuidesBooks} alt="Guides" />
         </SectionContent>
       </Section>
-      <Section id="RaidsPage" to="/raids">
+      <Section id="GuildsPage" to="/guilds">
         <SectionHeader>
           <p>
             <FormattedMessage {...messages.guilds} />
@@ -116,6 +106,16 @@ export default function HomePage() {
         <GuildContent>
           <img style={{ width: '80%', height: '80%'}} src={Guilds} alt="Guides" />
         </GuildContent>
+      </Section>
+      <Section id="RaidsPage" to="/raids">
+        <SectionHeader>
+          <p>
+            <FormattedMessage {...messages.raids} />
+          </p>
+        </SectionHeader>
+        <SectionContent>
+          <img style={{ width: '60%', height: '60%' }} src={Raids} alt="Guides" />
+        </SectionContent>
       </Section>
     </Page>
   );

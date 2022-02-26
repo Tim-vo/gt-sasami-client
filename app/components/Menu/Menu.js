@@ -89,6 +89,12 @@ const Menu = ({
         </StyledLink>
       </Item>
       <Item>
+        <StyledLink id="GuidesPage" to="/guides">
+          Guides
+        </StyledLink>
+        <StyledLink id="GuildsPage" to="/guilds">
+          Guilds
+        </StyledLink>
         <StyledLink id="RaidsPage" to="/raids">
           Raids
         </StyledLink>
