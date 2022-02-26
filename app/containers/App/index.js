@@ -17,8 +17,8 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import GlobalStyle from '../../global-styles';
 import styled from 'styled-components';
 import RaidsPage from '../RaidsPage';
-import { GuildsPage } from '../GuildsPage';
-import { GuidesPage } from '../GuidesPage';
+import GuildsPage from '../GuildsPage';
+import GuidesPage from '../GuidesPage';
 
 const Wrapper = styled.section`
   display: flex;

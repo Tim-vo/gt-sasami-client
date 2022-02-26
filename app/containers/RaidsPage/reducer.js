@@ -16,7 +16,7 @@ export const initialState = {
     raidHistory: [],
   },
   loading: false,
-  error: true,
+  error: false,
 };
 
 /* eslint-disable default-case, no-param-reassign */

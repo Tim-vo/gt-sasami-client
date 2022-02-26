@@ -83,6 +83,7 @@
     "react-number-format": "^4.9.1",
     "react-redux": "7.0.2",
     "react-router-dom": "5.0.0",
+    "react-table": "^7.7.0",
     "recharts": "^2.1.9",
     "redux": "4.0.1",
     "redux-burger-menu": "^0.2.8",

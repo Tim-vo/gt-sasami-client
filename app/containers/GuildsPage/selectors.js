@@ -21,5 +21,11 @@ const makeSelectGuildsPage = () =>
     substate => substate,
   );
 
+const makeGuildSelector = () =>
+  createSelector(
+    selectGuildsPageDomain,
+    substate => substate.guild,
+  );
+
 export default makeSelectGuildsPage;
-export { selectGuildsPageDomain };
+export { selectGuildsPageDomain, makeGuildSelector };

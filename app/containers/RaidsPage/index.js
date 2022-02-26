@@ -67,6 +67,7 @@ const Container = styled.div`
   box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.47);
 `;
 
+//TODO: Fix weird height min and max definition
 const Component = styled.div`
   width: 100%;
   min-height: 50rem;

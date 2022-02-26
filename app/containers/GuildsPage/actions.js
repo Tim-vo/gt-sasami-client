@@ -4,10 +4,29 @@
  *
  */
 
-import { DEFAULT_ACTION } from './constants';
+import { 
+  LOAD_GUILD, 
+  LOAD_GUILD_SUCCESS, 
+  LOAD_GUILD_FAILED,
+} from './constants';
 
-export function defaultAction() {
+export function loadGuild(guildName) {
   return {
-    type: DEFAULT_ACTION,
+    type: LOAD_GUILD,
+    guildName,
+  };
+}
+
+export function loadGuildSuccess(guild) {
+  return {
+    type: LOAD_GUILD_SUCCESS,
+    guild,
+  };
+}
+
+export function loadGuildFailed(error) {
+  return {
+    type: LOAD_GUILD_FAILED,
+    error,
   };
 }
